@@ -12,11 +12,28 @@ Steps to launch this in your local computer:
 ```
 gradlew build
 docker-machine start default
-docker build java -t .
-docker run -p 4567:4567
+docker build -t spark-gradle-alpine-docker .
+docker run -p 4567:4567 spark-gradle-alpine-docker
+```
+
+You will see something like following result:
+
+```
+hello world! today is 2016-04-09
+[Thread-0] INFO org.eclipse.jetty.util.log - Logging initialized @228ms
+[Thread-0] INFO spark.webserver.JettySparkServer - == Spark has ignited ...
+[Thread-0] INFO spark.webserver.JettySparkServer - >> Listening on 0.0.0.0:4567
+[Thread-0] INFO org.eclipse.jetty.server.Server - jetty-9.3.z-SNAPSHOT
+[Thread-0] INFO org.eclipse.jetty.server.ServerConnector - Started ServerConnector@2cea8c7d{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}
+[Thread-0] INFO org.eclipse.jetty.server.Server - Started @357ms
 ```
 
 To see how it's running in Windows:
 ```
 FOR /f "tokens=*" %i IN ('docker-machine ip') DO curl %i:4567/hello
+```
+This results ike:
+```
+curl 192.168.99.100:4567/hello
+Hello World! today is 2016-04-09
 ```
