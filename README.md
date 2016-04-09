@@ -32,7 +32,7 @@ To see how it's running in Windows:
 ```
 FOR /f "tokens=*" %i IN ('docker-machine ip') DO curl %i:4567/hello
 ```
-This results ike:
+This results like:
 ```
 curl 192.168.99.100:4567/hello
 Hello World! today is 2016-04-09
