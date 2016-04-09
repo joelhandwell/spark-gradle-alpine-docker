@@ -2,10 +2,13 @@
 https://github.com/perwendel/spark app example buit by gralde running in alpine linux on docker
 
 Pre-requirements: 
- 1. Install Java8, docker
- 2. In Windows or Mac install docker-machine and run ```docker-machine create --driver virtualbox default```
+ 1. In Windows, Mac or Linux install Java8, docker add them to your PATH
+ 2. In Windows or Mac install docker-machine
+ 3. In Windows or Mac run ```docker-machine create --driver virtualbox default```
+ 4. In Windows or Mac run ```docker-machine env```
+ 5. Change java code and tests
+ 6. Run following to launch the docker container:
 
-After chaning java code, run following:
 ```
 gradlew build
 docker-machine start default
