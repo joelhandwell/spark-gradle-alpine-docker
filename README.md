@@ -12,20 +12,15 @@ Steps to launch this in your local computer:
 ```
 gradlew build
 docker-machine start default
-docker build -t spark-gradle-alpine-docker .
-docker run -p 4567:4567 spark-gradle-alpine-docker
+docker-compose up
 ```
 
 You will see something like following result:
 
 ```
-hello world! today is 2016-04-09
-[Thread-0] INFO org.eclipse.jetty.util.log - Logging initialized @228ms
-[Thread-0] INFO spark.webserver.JettySparkServer - == Spark has ignited ...
-[Thread-0] INFO spark.webserver.JettySparkServer - >> Listening on 0.0.0.0:4567
-[Thread-0] INFO org.eclipse.jetty.server.Server - jetty-9.3.z-SNAPSHOT
-[Thread-0] INFO org.eclipse.jetty.server.ServerConnector - Started ServerConnector@2cea8c7d{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}
-[Thread-0] INFO org.eclipse.jetty.server.Server - Started @357ms
+Creating java_spark_1
+Attaching to java_spark_1
+spark_1  | hello world! today is 2017-02-15
 ```
 
 To see how it's running in Windows:
