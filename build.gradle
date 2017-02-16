@@ -12,6 +12,7 @@ repositories {
 dependencies {
 	compile 'com.sparkjava:spark-core:2.5'
 	testCompile 'junit:junit:4.+'
+	runtime files(org.gradle.internal.jvm.Jvm.current().toolsJar)
 }
 
 task fatJar (type: Jar) {
@@ -20,7 +21,7 @@ task fatJar (type: Jar) {
 		'Implementation-Version': version,
 		'Main-Class': 'com.github.joelhandwell.HelloWorld'
 	}
-	baseName = project.name + '-all'
+	baseName = 'java-all'
 	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 	with jar
 }

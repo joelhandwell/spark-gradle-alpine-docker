@@ -1,10 +1,15 @@
 # AlpineLinux with a glibc-2.21 and Oracle Java 8
 
-FROM anapsix/alpine-java
+FROM chickenzord/alpine-gradle
 MAINTAINER Joel Handwell
 
-ADD ./build /build
+COPY ./src /opt/spark/src
+COPY ./build.gradle /opt/spark/build.gradle
+
+WORKDIR /opt/spark
+
+RUN gradle build
 
 EXPOSE 4567
 
-CMD java -classpath /build/libs/java-all-1.0.jar com.github.joelhandwell.HelloWorld
+ENTRYPOINT java -classpath /opt/spark/build/libs/java-all-1.0.jar com.github.joelhandwell.HelloWorld
